@@ -3,6 +3,7 @@ window.onload = () => {
   let second = 0;
 
   function hpb() {
+    second = 0;
     clearInterval(intervalId);
 
     document.body.addEventListener("click", function (_e) {
