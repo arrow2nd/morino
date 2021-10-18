@@ -23,15 +23,19 @@ window.onload = () => {
   function update() {
     const jst = new Date().toLocaleString({ timeZone: "Asia/Tokyo" });
     const now = new Date(jst);
+
+    if (now.getMonth() === 9 && now.getDate() === 19) {
+      hpb();
+      return;
+    }
+
     const endYear =
       now.getMonth() + 1 > 10 ? now.getFullYear + 1 : now.getFullYear();
     const end = new Date(endYear, 9, 19);
 
     second = (end - now) / 1000;
 
-    if (second <= 0) {
-      hpb();
-    } else {
+    if (second >= 0) {
       document.getElementById("seconds").innerHTML = second;
     }
   }
