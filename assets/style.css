@@ -1,0 +1,49 @@
+body {
+  font-size: 24px;
+  color: #1c1c1c;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+#content {
+  text-align: center;
+}
+
+.title {
+  margin: 0;
+  font-size: 100%;
+  font-weight: 100;
+}
+
+.time {
+  margin: 30px 0;
+}
+
+#seconds {
+  margin: 0 5px;
+  font-size: 200%;
+  font-weight: bold;
+}
+
+.tweet {
+  display: inline-block;
+  font-size: 70%;
+  text-decoration: none;
+  padding: 5px 40px;
+  color: #fff;
+  background-color: #1da1f2;
+  border-radius: 1.5rem;
+}
+
+.hpb {
+  margin-bottom: 30px;
+  text-align: center;
+  font-size: 200%;
+  font-weight: bold;
+}
