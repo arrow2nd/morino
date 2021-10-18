@@ -1,3 +1,8 @@
+const birth = {
+  mon: 10 - 1,
+  day: 19,
+};
+
 window.onload = () => {
   let intervalId = 0;
   let second = 0;
@@ -25,14 +30,14 @@ window.onload = () => {
     const jst = new Date().toLocaleString({ timeZone: "Asia/Tokyo" });
     const now = new Date(jst);
 
-    if (now.getMonth() === 9 && now.getDate() === 19) {
+    if (now.getMonth() === birth.mon && now.getDate() === birth.day) {
       hpb();
       return;
     }
 
-    const endYear =
-      now.getMonth() + 1 > 10 ? now.getFullYear + 1 : now.getFullYear();
-    const end = new Date(endYear, 9, 19);
+    const birthday = new Date(now.getFullYear(), birth.mon, birth.day);
+    const endYear = birthday < now ? now.getFullYear() + 1 : now.getFullYear();
+    const end = new Date(endYear, birth.mon, birth.day);
 
     second = (end - now) / 1000;
 
@@ -42,6 +47,7 @@ window.onload = () => {
   }
 
   intervalId = setInterval(update, 1000);
+  update();
 
   document.getElementById("tweet").onclick = () => {
     const text =
