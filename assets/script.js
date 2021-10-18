@@ -40,10 +40,14 @@ window.onload = () => {
 
   document.getElementById("tweet").onclick = () => {
     const text =
-      second < 0
+      second > 0
         ? `杜野凛世さんのお誕生日まで残り ${second} 秒です！`
         : "杜野凛世さんは本日がお誕生日です！！！！！🎉🎉";
-    const url = `https://twitter.com/intent/tweet?text=${encodeURI(text)}`;
+
+    const url = `https://twitter.com/intent/tweet?text=${encodeURI(
+      text
+    )}&url=https://morino.deno.dev/`;
+
     document.getElementById("tweet").href = url;
   };
 };
