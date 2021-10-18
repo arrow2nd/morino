@@ -21,7 +21,6 @@ window.onload = () => {
     <div class="hpb">
       <div>杜野凛世さんは</div>
       <div>本日がお誕生日です！！！！！🎉🎉</div>
-      <a>
     </div>
     `;
   }
