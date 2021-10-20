@@ -1,3 +1,4 @@
+import { listenAndServe } from "https://deno.land/std@0.112.0/http/server.ts";
 import { hasAsset, getAsset } from "./lib/assets.js";
 
 async function handleRequest(request) {
@@ -15,6 +16,4 @@ async function handleRequest(request) {
   });
 }
 
-addEventListener("fetch", (event) => {
-  event.respondWith(handleRequest(event.request));
-});
+await listenAndServe(":8080", (req) => handleRequest(req));
