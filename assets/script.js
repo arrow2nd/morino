@@ -30,7 +30,7 @@ window.onload = () => {
     }
 
     const endYear =
-      now.getMonth() + 1 > 10 ? now.getFullYear + 1 : now.getFullYear();
+      (now.getMonth() + 1 > 10 || now.getMonth() === 9 && now.getDate() >= 20) ? now.getFullYear() + 1 : now.getFullYear();
     const end = new Date(endYear, 9, 19);
 
     second = (end - now) / 1000;
