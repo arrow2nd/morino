@@ -26,8 +26,7 @@ window.onload = () => {
   }
 
   function update() {
-    const jst = new Date().toLocaleString({ timeZone: "Asia/Tokyo" });
-    const now = new Date(jst);
+    const now = new Date();
 
     if (now.getMonth() === birth.mon && now.getDate() === birth.day) {
       hpb();
@@ -38,7 +37,7 @@ window.onload = () => {
     const endYear = birthday < now ? now.getFullYear() + 1 : now.getFullYear();
     const end = new Date(endYear, birth.mon, birth.day);
 
-    second = (end - now) / 1000;
+    second = Math.floor((end - now) / 1000);
 
     if (second >= 0) {
       document.getElementById("seconds").innerHTML = second;
