@@ -7,7 +7,7 @@ window.onload = () => {
   let intervalId = 0;
   let second = 0;
 
-  function hpb() {
+  function happyBirthDay() {
     second = 0;
     clearInterval(intervalId);
 
@@ -27,9 +27,8 @@ window.onload = () => {
 
   function update() {
     const now = new Date();
-
     if (now.getMonth() === birth.mon && now.getDate() === birth.day) {
-      hpb();
+      happyBirthDay();
       return;
     }
 
@@ -38,7 +37,6 @@ window.onload = () => {
     const end = new Date(endYear, birth.mon, birth.day);
 
     second = Math.floor((end - now) / 1000);
-
     if (second >= 0) {
       document.getElementById("seconds").innerHTML = second;
     }
@@ -53,7 +51,7 @@ window.onload = () => {
         ? `杜野凛世さんのお誕生日まで残り ${second} 秒です！`
         : "杜野凛世さんは本日がお誕生日です！！！！！🎉🎉";
 
-    const url = `https://twitter.com/intent/tweet?text=${encodeURI(
+    const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(
       text
     )}&url=https://morino.deno.dev/`;
 
