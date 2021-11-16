@@ -12,11 +12,14 @@ async function handleRequest(request) {
     return getOgImage(pathname);
   }
 
+  // TODO: ページにOGP画像のURLを埋め込みたいので作成する処理を関数に切り出す！
   const body = await Deno.readFile("./assets/index.html");
+
   return new Response(body, {
     status: 200,
     headers: { "content-type": "text/html; charset=utf-8" },
   });
 }
 
+// TODO: std@0.114.0での変更に対応
 await listenAndServe(":8080", (req) => handleRequest(req));
