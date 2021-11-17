@@ -1,5 +1,6 @@
 import { birth, calcSecond2Birthday, embedData2Text } from "./common.js";
 
+let nowDate = new Date()
 let intervalId = 0;
 let second = 0;
 
@@ -22,15 +23,22 @@ function happyBirthDay() {
 }
 
 function update() {
-  const now = new Date();
+  const nextDate = new Date();
 
+  // 日付が変わったらリロード
+  if (nextDate.getDate() !== nowDate.getDate()) {
+    location.reload(true);
+  }
+
+  nowDate = nextDate;
+  
   // 誕生日かどうか
-  if (now.getMonth() === birth.mon && now.getDate() === birth.day) {
+  if (nowDate.getMonth() === birth.mon && nowDate.getDate() === birth.day) {
     happyBirthDay();
     return;
   }
 
-  second = calcSecond2Birthday(now);
+  second = calcSecond2Birthday(nowDate);
 
   if (second >= 0) {
     document.getElementById("seconds").innerHTML = second;
@@ -48,7 +56,7 @@ document.getElementById("tweet").onclick = () => {
 
   const data = new Map([
     ["tweetText", encodeURIComponent(`${text}\n`)],
-    ["timestamp", encodeURIComponent(`&t=${new Date().getTime()}`)],
+    ["timestamp", encodeURIComponent(`&t=${nowDate.getTime()}`)],
   ]);
 
   const url = embedData2Text(
