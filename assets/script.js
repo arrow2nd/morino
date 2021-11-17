@@ -1,3 +1,4 @@
+// 杜野凛世さんの誕生日
 const birth = {
   mon: 10 - 1,
   day: 19,
@@ -32,11 +33,15 @@ window.onload = () => {
       return;
     }
 
-    const birthday = new Date(now.getFullYear(), birth.mon, birth.day);
-    const endYear = birthday < now ? now.getFullYear() + 1 : now.getFullYear();
-    const end = new Date(endYear, birth.mon, birth.day);
+    // 次の誕生日の日付
+    const birthYear = (now.getMonth() > birth.mon ||
+        now.getMonth() === birth.mon && now.getDate() >= birth.mon + 1)
+      ? now.getFullYear() + 1
+      : now.getFullYear();
+    const nextBirthday = new Date(birthYear, birth.mon, birth.day);
 
-    second = Math.floor((end - now) / 1000);
+    second = Math.floor((nextBirthday - now) / 1000);
+
     if (second >= 0) {
       document.getElementById("seconds").innerHTML = second;
     }
@@ -45,15 +50,21 @@ window.onload = () => {
   intervalId = setInterval(update, 1000);
   update();
 
+  // ツイート用のURLを設定
   document.getElementById("tweet").onclick = () => {
-    const text =
-      second > 0
-        ? `杜野凛世さんのお誕生日まで残り ${second} 秒です！`
-        : "杜野凛世さんは本日がお誕生日です！！！！！🎉🎉";
+    const text = second > 0
+      ? `杜野凛世さんのお誕生日まで残り ${second} 秒です！`
+      : "杜野凛世さんは本日がお誕生日です！！！！！🎉🎉";
 
-    const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(
-      text
-    )}&url=https://morino.deno.dev/`;
+    const data = new Map([
+      ["tweetText", `${text}\n`],
+      ["timestamp", `&t=${new Date().getTime()}`],
+    ]);
+
+    let url = document.getElementById("tweet").href;
+    data.forEach((val, key) => {
+      url = url.replaceAll(`{{${key}}}`, encodeURIComponent(val));
+    });
 
     document.getElementById("tweet").href = url;
   };
