@@ -1,6 +1,6 @@
 import { birth, calcSecond2Birthday, embedData2Text } from "./common.js";
 
-let nowDate = new Date()
+let nowDate = new Date();
 let intervalId = 0;
 let second = 0;
 
@@ -31,7 +31,7 @@ function update() {
   }
 
   nowDate = nextDate;
-  
+
   // 誕生日かどうか
   if (nowDate.getMonth() === birth.mon && nowDate.getDate() === birth.day) {
     happyBirthDay();
@@ -61,7 +61,7 @@ document.getElementById("tweet").onclick = () => {
 
   const url = embedData2Text(
     document.getElementById("tweet").href,
-    data
+    data,
   );
 
   document.getElementById("tweet").href = url;

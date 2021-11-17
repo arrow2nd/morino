@@ -4,15 +4,14 @@
 export const birth = {
   mon: 10 - 1,
   day: 19,
-}
+};
 
 /**
  * 凛世さんのお誕生日までの秒数を計算
  * @param {Date} date Date
  * @returns 残り秒数
  */
- export function calcSecond2Birthday(date) {
-  // 次の誕生日の日付
+export function calcSecond2Birthday(date) {
   const birthYear = (date.getMonth() > birth.mon ||
       date.getMonth() === birth.mon && date.getDate() >= birth.mon + 1)
     ? date.getFullYear() + 1
