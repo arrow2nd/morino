@@ -5,10 +5,10 @@ import { getPage } from "./lib/page.js";
 
 serve((req) => {
   const { pathname, searchParams } = new URL(req.url);
-  
+
   if (hasAsset(pathname)) {
     return getAsset(pathname);
   }
-  
+
   return getPage(searchParams);
-})
+});

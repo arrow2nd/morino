@@ -13,7 +13,9 @@ export const birth = {
  */
 export function convJstDate(timestamp) {
   const diffMin = 9 * 60;
-  return new Date(timestamp + ((new Date().getTimezoneOffset() + diffMin) * 60 * 1000));
+  return new Date(
+    timestamp + ((new Date().getTimezoneOffset() + diffMin) * 60 * 1000),
+  );
 }
 
 /**
@@ -34,7 +36,9 @@ export function calcSecond2Birthday(date) {
       date.getMonth() === birth.mon && date.getDate() >= birth.mon + 1)
     ? date.getFullYear() + 1
     : date.getFullYear();
-  const nextBirthday = convJstDate(new Date(birthYear, birth.mon, birth.day).getTime());
+  const nextBirthday = convJstDate(
+    new Date(birthYear, birth.mon, birth.day).getTime(),
+  );
 
   return Math.floor((nextBirthday - date) / 1000);
 }

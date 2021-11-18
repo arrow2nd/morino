@@ -1,4 +1,9 @@
-import { birth, calcSecond2Birthday, embedData2Text, getNowJstDate } from "./common.js";
+import {
+  birth,
+  calcSecond2Birthday,
+  embedData2Text,
+  getNowJstDate,
+} from "./common.js";
 
 let nowDate = getNowJstDate();
 let intervalId = 0;
