@@ -36,9 +36,7 @@ export function calcSecond2Birthday(date) {
       date.getMonth() === birth.mon && date.getDate() >= birth.mon + 1)
     ? date.getFullYear() + 1
     : date.getFullYear();
-  const nextBirthday = convJstDate(
-    new Date(birthYear, birth.mon, birth.day).getTime(),
-  );
+  const nextBirthday = convJstDate(new Date(birthYear, birth.mon, birth.day));
 
   return Math.floor((nextBirthday - date) / 1000);
 }
