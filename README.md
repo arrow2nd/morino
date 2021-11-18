@@ -5,6 +5,14 @@
 
 凛世さんのお誕生日までの秒数をカウントダウンするやつ
 
+## .env
+```
+BASE_URL={ページのURL}
+APP_SECRET={シークレット文字列（なんでも）}
+CLOUDINARY_CLOUDNAME={CloudinaryのCloud Name}
+CLOUDINARY_SECRET={CloudinaryのAPI Secret}
+```
+
 ## Run
 
 ```sh
