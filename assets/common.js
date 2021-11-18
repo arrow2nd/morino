@@ -7,6 +7,24 @@ export const birth = {
 };
 
 /**
+ * JSTなDateに変換
+ * @param {number} timestamp タイムスタンプ
+ * @return {Date} Dateオブジェクト
+ */
+export function convJstDate(timestamp) {
+  const diffMin = 9 * 60;
+  return new Date(timestamp + ((new Date().getTimezoneOffset() + diffMin) * 60 * 1000));
+}
+
+/**
+ * JSTな現在のDateを取得
+ * @return {Date} Dateオブジェクト
+ */
+export function getNowJstDate() {
+  return convJstDate(Date.now());
+}
+
+/**
  * 凛世さんのお誕生日までの秒数を計算
  * @param {Date} date Dateオブジェクト
  * @return {number} 残り秒数
@@ -16,7 +34,7 @@ export function calcSecond2Birthday(date) {
       date.getMonth() === birth.mon && date.getDate() >= birth.mon + 1)
     ? date.getFullYear() + 1
     : date.getFullYear();
-  const nextBirthday = new Date(birthYear, birth.mon, birth.day);
+  const nextBirthday = convJstDate(new Date(birthYear, birth.mon, birth.day).getTime());
 
   return Math.floor((nextBirthday - date) / 1000);
 }

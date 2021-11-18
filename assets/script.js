@@ -1,6 +1,6 @@
-import { birth, calcSecond2Birthday, embedData2Text } from "./common.js";
+import { birth, calcSecond2Birthday, embedData2Text, getNowJstDate } from "./common.js";
 
-let nowDate = new Date();
+let nowDate = getNowJstDate();
 let intervalId = 0;
 let second = 0;
 
@@ -23,7 +23,7 @@ function happyBirthDay() {
 }
 
 function update() {
-  const nextDate = new Date();
+  const nextDate = getNowJstDate();
 
   // 日付が変わったらリロード
   if (nextDate.getDate() !== nowDate.getDate()) {
