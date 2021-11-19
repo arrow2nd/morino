@@ -33,7 +33,7 @@ export function getNowJstDate() {
  */
 export function calcSecond2Birthday(date) {
   const birthYear = (date.getMonth() > birth.mon ||
-      date.getMonth() === birth.mon && date.getDate() >= birth.mon + 1)
+      date.getMonth() === birth.mon && date.getDate() >= birth.day + 1)
     ? date.getFullYear() + 1
     : date.getFullYear();
 
