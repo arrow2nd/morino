@@ -7,7 +7,7 @@ export const birth = {
 };
 
 /**
- * JSTなDateに変換
+ * JSTの時差を考慮したDateに変換
  * @param {number} timestamp タイムスタンプ
  * @return {Date} Dateオブジェクト
  */
@@ -19,7 +19,7 @@ export function convJstDate(timestamp) {
 }
 
 /**
- * JSTな現在のDateを取得
+ * JSTの時差を考慮した現在のDateを取得
  * @return {Date} Dateオブジェクト
  */
 export function getNowJstDate() {
@@ -36,7 +36,9 @@ export function calcSecond2Birthday(date) {
       date.getMonth() === birth.mon && date.getDate() >= birth.mon + 1)
     ? date.getFullYear() + 1
     : date.getFullYear();
-  const nextBirthday = convJstDate(new Date(birthYear, birth.mon, birth.day));
+
+  // 引数のdateは環境によってTZが異なるのでnew Date()を使ってTZを合わせる
+  const nextBirthday = new Date(birthYear, birth.mon, birth.day, 0, 0, 0);
 
   return Math.floor((nextBirthday - date) / 1000);
 }
