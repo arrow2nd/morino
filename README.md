@@ -17,5 +17,9 @@ CLOUDINARY_SECRET=CloudinaryのAPI Secret
 ## Run
 
 ```sh
-deno run --allow-net=:8000 --allow-read --allow-env --watch ./server.js
+# build bundle.js
+deno run -A --unstable ./tools/build.ts
+
+# serve
+deno run --allow-net=:8000 --allow-read --allow-env --watch ./server.tsx
 ```
