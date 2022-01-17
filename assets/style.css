@@ -11,7 +11,7 @@ main {
   min-height: 100vh;
 }
 
-#content {
+#countdown {
   text-align: center;
   user-select: none;
 }

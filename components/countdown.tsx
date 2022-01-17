@@ -44,7 +44,7 @@ export class CountDown extends Component {
 
   render() {
     return (
-      <div id="content">
+      <div>
         <h1 class="title">杜野凛世さんのお誕生日まで</h1>
         <div class="time">
           残り<span id="seconds">{this.second}</span>秒
