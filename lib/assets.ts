@@ -22,10 +22,7 @@ export function hasAsset(path: string): boolean {
  * @return HTTPレスポンス
  */
 export async function getAsset(path: string): Promise<Response> {
-  const asset =
-    path === "/bundle.js"
-      ? await generateBundle()
-      : await Deno.readFile("./assets" + path);
+  const asset = await Deno.readFile("./assets" + path);
 
   return new Response(asset, {
     status: 200,
@@ -36,8 +33,12 @@ export async function getAsset(path: string): Promise<Response> {
 /**
  * bundle.jsを生成
  * @returns JavaScript文字列
+ *
+ * NOTE: Deno Deploy では Deno.emit が動かないので使ってない
  */
-async function generateBundle(): Promise<string> {
+async function _generateBundle(): Promise<string> {
+  // deno-lint-ignore ban-ts-comment
+  // @ts-ignore
   const { files } = await Deno.emit("./client.tsx", {
     bundle: "module",
     compilerOptions: {
