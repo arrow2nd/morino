@@ -4,6 +4,7 @@
 /// <reference lib="dom.asynciterable" />
 /// <reference lib="deno.ns" />
 
+import "https://deno.land/x/dotenv@v3.1.0/load.ts";
 import { serve } from "https://deno.land/std@0.114.0/http/server.ts";
 
 import { h } from "./nano.ts";
