@@ -22,17 +22,17 @@ main {
   font-weight: 100;
 }
 
-.time {
+.countdown {
   margin: 30px 0;
 }
 
-#seconds {
+#second {
   margin: 0 5px;
   font-size: 200%;
   font-weight: bold;
 }
 
-#tweet {
+#tweet-btn {
   display: inline-block;
   font-size: 70%;
   text-decoration: none;
