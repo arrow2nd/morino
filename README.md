@@ -3,6 +3,7 @@
 凛世さんのお誕生日までの秒数をカウントダウンするやつ
 
 [![deno deploy](https://img.shields.io/badge/deno-deploy-green?logo=deno)](https://morino.deno.dev)
+[![vr scripts](https://badges.velociraptor.run/flat.svg)](https://velociraptor.run)
 [![杜野凛世](https://img.shields.io/badge/SHINY%20COLORS-%E6%9D%9C%E9%87%8E%E5%87%9B%E4%B8%96-89C3EB?style=flat)](https://idollist.idolmaster-official.jp/detail/50022)
 
 ## .env
