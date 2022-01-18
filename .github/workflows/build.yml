@@ -9,8 +9,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Build
+      - name: Checkout & Setup Deno, Velociraptor
         uses: jurassiscripts/setup-velociraptor@v2
+        
+      - name: Build
         run: vr build
 
       - name: Commit the changes
