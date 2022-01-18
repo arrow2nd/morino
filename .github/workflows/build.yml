@@ -1,0 +1,19 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build
+        uses: jurassiscripts/setup-velociraptor@v2
+        run: vr build
+
+      - name: Commit the changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "add: build.js"
