@@ -8,7 +8,7 @@ import { h, hydrate } from "./nano.ts";
 import { CountDown } from "./components/countdown.tsx";
 
 const start = () => {
-  hydrate(<CountDown />, document.getElementById("countdown"));
+  hydrate(<CountDown />, document.getElementById("content"));
 };
 
 self.addEventListener("load", () => {

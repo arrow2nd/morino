@@ -7,16 +7,22 @@
 import { h } from "../nano.ts";
 
 type Props = {
-  baseUrl: string;
-  text: string;
-  timestamp: number;
+  url: string;
+  second: number;
 };
 
-export const Button = ({ baseUrl, text, timestamp }: Props) => {
-  const tweetText = text + baseUrl + timestamp;
+export const Button = ({ url, second }: Props) => {
+  const text = second > 0
+    ? `杜野凛世さんのお誕生日まで残り ${second} 秒です！`
+    : "杜野凛世さんは本日がお誕生日です！！！！！🎉🎉";
+
+  const tweetText = encodeURIComponent(`${text}\n${url}`);
 
   return (
-    <a id="tweet" href={`https://twitter.com/intent/tweet?text=${tweetText}`}>
+    <a
+      class="tweet-btn"
+      href={`https://twitter.com/intent/tweet?text=${tweetText}`}
+    >
       ツイート
     </a>
   );

@@ -1,7 +1,7 @@
 import { crypto } from "https://deno.land/std@0.114.0/crypto/mod.ts";
 import { encode } from "https://deno.land/std@0.114.0/encoding/base64url.ts";
 
-import { birth, calcSecond2Birthday, convJstDate } from "./time.ts";
+import { birth, calcSecond2Birthday, convJstDate } from "./date.ts";
 import { verification } from "./util.ts";
 
 /**
@@ -11,13 +11,15 @@ import { verification } from "./util.ts";
  * @return URL
  */
 function createCloudinaryUrl(trans: string, pubId: string): string {
-  const baseUrl = `https://res.cloudinary.com/${Deno.env.get(
-    "CLOUDINARY_CLOUDNAME"
-  )}/image/upload`;
+  const baseUrl = `https://res.cloudinary.com/${
+    Deno.env.get(
+      "CLOUDINARY_CLOUDNAME",
+    )
+  }/image/upload`;
 
   const toSign = `${trans}/${pubId}`;
   const data = new TextEncoder().encode(
-    toSign + Deno.env.get("CLOUDINARY_SECRET")
+    toSign + Deno.env.get("CLOUDINARY_SECRET"),
   );
 
   const sha1 = crypto.subtle.digestSync("SHA-1", data);
@@ -57,6 +59,6 @@ export function getOgImageUrl(params: URLSearchParams): string {
 
   return createCloudinaryUrl(
     `$second_!${second}!/t_morino-ogp`,
-    "morino/ogp-base.png"
+    "morino/ogp-base.png",
   );
 }

@@ -15,7 +15,7 @@ export function convJstDate(timestamp: number): Date {
   const diffMin = 9 * 60;
 
   return new Date(
-    timestamp + (new Date().getTimezoneOffset() + diffMin) * 60 * 1000
+    timestamp + (new Date().getTimezoneOffset() + diffMin) * 60 * 1000,
   );
 }
 

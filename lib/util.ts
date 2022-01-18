@@ -1,5 +1,5 @@
 import { crypto } from "https://deno.land/std@0.114.0/crypto/mod.ts";
-import { convJstDate, getNowJstDate } from "./time.ts";
+import { convJstDate, getNowJstDate } from "./date.ts";
 
 /**
  * ハッシュを計算
@@ -25,7 +25,7 @@ export function md5(text: string): string {
 export function verification(
   hash: string | undefined,
   timestamp: number,
-  secret: string | undefined
+  secret: string | undefined,
 ): boolean {
   const now = getNowJstDate().getTime();
   if (!hash || !timestamp || now < timestamp) return false;

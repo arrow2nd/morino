@@ -10,7 +10,7 @@ import { serve } from "https://deno.land/std@0.114.0/http/server.ts";
 import { h } from "./nano.ts";
 import { App } from "./components/App.tsx";
 
-import { hasAsset, getAsset } from "./lib/assets.ts";
+import { getAsset, hasAsset } from "./lib/assets.ts";
 import { createPage } from "./lib/page.ts";
 
 const handler = async (req: Request): Promise<Response> => {

@@ -4,15 +4,29 @@
 /// <reference lib="dom.asynciterable" />
 /// <reference lib="deno.ns" />
 
-import { h, Component } from "../nano.ts";
-import { birth, calcSecond2Birthday, getNowJstDate } from "../lib/time.ts";
+import { Component, h } from "../nano.ts";
+import { Button } from "./button.tsx";
+import { birth, calcSecond2Birthday, getNowJstDate } from "../lib/date.ts";
+
+type Props = {
+  siteUrl?: string;
+};
 
 export class CountDown extends Component {
+  private siteUrl = "";
   private nowDate = getNowJstDate();
   private intervalId = 0;
   private second = 0;
 
-  updateTime = () => {
+  constructor(props: Props) {
+    super(props);
+
+    if (props.siteUrl) {
+      this.siteUrl = props.siteUrl;
+    }
+  }
+
+  private updateTime = () => {
     const nextDate = getNowJstDate();
 
     // 日付が変わったらリロード
@@ -43,12 +57,20 @@ export class CountDown extends Component {
   }
 
   render() {
+    const url = `${this.siteUrl}&t=${this.nowDate.getTime()}`;
+
     return (
       <div>
-        <h1 class="title">杜野凛世さんのお誕生日まで</h1>
-        <div class="time">
-          残り<span id="seconds">{this.second}</span>秒
+        <div class="countdown">
+          <h1 class="title">杜野凛世さんのお誕生日まで</h1>
+          <div class="time">
+            残り<span class="seconds">{this.second}</span>秒
+          </div>
         </div>
+        <Button
+          url={url}
+          second={this.second}
+        />
       </div>
     );
   }
