@@ -20,5 +20,5 @@ CLOUDINARY_SECRET=CloudinaryのAPI Secret
 
 ```sh
 # build & serve
-vr build && ve start
+vr build && vr start
 ```
