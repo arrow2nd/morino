@@ -1,5 +1,7 @@
 # morino
 
+> ⚠️ nanoJSX実装版。誕生日になった際の演出が未実装。作業してたら なんか違うな… ってなったのでやめた。
+
 凛世さんのお誕生日までの秒数をカウントダウンするやつ
 
 [![deno deploy](https://img.shields.io/badge/deno-deploy-green?logo=deno)](https://morino.deno.dev)
@@ -17,9 +19,6 @@ CLOUDINARY_SECRET=CloudinaryのAPI Secret
 ## Run
 
 ```sh
-# build bundle.js
-deno run -A --unstable ./tools/build.ts
-
-# serve
-deno run --allow-net=:8000 --allow-read --allow-env --watch ./server.tsx
+# build & serve
+vr build && ve start
 ```
