@@ -1,0 +1,4 @@
+scripts:
+  start: deno run --allow-net=:8000 --allow-read --allow-env --watch ./server.js
+  build: deno run --allow-net --allow-read --allow-write --allow-env --allow-run --unstable ./tools/build.js
+  fmt: deno fmt *.js ./lib/*.js ./tools/*.js

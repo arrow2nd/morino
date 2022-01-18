@@ -1,5 +1,7 @@
 body {
+  font-family: 'Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3','メイリオ', Meiryo,sans-serif;
   font-size: 24px;
+  font-weight: normal;
   color: #1c1c1c;
 }
 
@@ -19,20 +21,20 @@ main {
 .title {
   margin: 0;
   font-size: 100%;
-  font-weight: 100;
+  font-weight: lighter;
 }
 
-.time {
+.countdown {
   margin: 30px 0;
 }
 
-#seconds {
+#second {
   margin: 0 5px;
   font-size: 200%;
   font-weight: bold;
 }
 
-#tweet {
+#tweet-btn {
   display: inline-block;
   font-size: 70%;
   text-decoration: none;
@@ -43,7 +45,7 @@ main {
   cursor: pointer;
 }
 
-.hpb {
+#hpb {
   margin-bottom: 30px;
   text-align: center;
   font-size: 200%;
