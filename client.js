@@ -6,12 +6,15 @@ import {
 } from "./lib/util.js";
 
 let nowDate = getNowJstDate();
-let intervalId = 0;
 let second = 0;
 
 const happyBirthDay = () => {
+  // 既に差し替え済なら処理しない
+  if (document.getElementById("hpb")) {
+    return;
+  }
+
   second = 0;
-  clearInterval(intervalId);
 
   // クリックで紙吹雪
   document.body.addEventListener("click", function (_e) {
@@ -22,7 +25,7 @@ const happyBirthDay = () => {
 
   // カウントダウン部分を差し替え
   document.getElementById("content").innerHTML = `
-  <div class="hpb">
+  <div id="hpb">
     <div>杜野凛世さんは</div>
     <div>本日がお誕生日です！！！！！🎉🎉</div>
   </div>
@@ -51,7 +54,7 @@ const update = () => {
 };
 
 // 1秒毎に更新
-intervalId = setInterval(update, 1000);
+setInterval(update, 1000);
 update();
 
 // クリック時にツイート用のURLを設定

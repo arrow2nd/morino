@@ -45,7 +45,7 @@ main {
   cursor: pointer;
 }
 
-.hpb {
+#hpb {
   margin-bottom: 30px;
   text-align: center;
   font-size: 200%;
