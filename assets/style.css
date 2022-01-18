@@ -1,5 +1,7 @@
 body {
+  font-family: YuGothic,'Yu Gothic','ヒラギノ角ゴシック','Hiragino Sans',sans-serif;
   font-size: 24px;
+  font-weight: normal;
   color: #1c1c1c;
 }
 
@@ -19,7 +21,6 @@ main {
 .title {
   margin: 0;
   font-size: 100%;
-  font-weight: 100;
 }
 
 .countdown {
