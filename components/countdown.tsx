@@ -60,12 +60,10 @@ export class CountDown extends Component {
     const url = `${this.siteUrl}&t=${this.nowDate.getTime()}`;
 
     return (
-      <div>
-        <div class="countdown">
-          <h1 class="title">杜野凛世さんのお誕生日まで</h1>
-          <div class="time">
-            残り<span class="seconds">{this.second}</span>秒
-          </div>
+      <div class="countdown">
+        <h1 class="title">杜野凛世さんのお誕生日まで</h1>
+        <div class="time">
+          残り<span class="seconds">{this.second}</span>秒
         </div>
         <Button
           url={url}
