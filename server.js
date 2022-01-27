@@ -4,16 +4,15 @@ import { serve } from "https://deno.land/std@0.114.0/http/server.ts";
 import { getAsset, hasAsset } from "./lib/asset.js";
 import { getPage } from "./lib/page.js";
 
-console.log("Listening on http://localhost:8000");
-
 serve((req) => {
   const { pathname, searchParams } = new URL(req.url);
 
-  // アセット
+  // 存在するアセットのパスなら返す
   if (hasAsset(pathname)) {
     return getAsset(pathname);
   }
 
-  // ページ
   return getPage(searchParams);
 });
+
+console.log(`Listening on ${Deno.env.get("BASE_URL")}`);
