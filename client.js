@@ -1,9 +1,5 @@
-import {
-  birth,
-  calcSecond2Birthday,
-  embedData2Text,
-  getNowJstDate,
-} from "./lib/util.js";
+import { calcSecond2Birthday, getNowJstDate, morinoBirth } from "./lib/date.js";
+import { embedData2Text } from "./lib/util.js";
 
 let nowDate = getNowJstDate();
 let second = 0;
@@ -35,13 +31,14 @@ const happyBirthDay = () => {
 const update = () => {
   const nextDate = getNowJstDate();
 
-  // 日付が変わったらリロード
+  // ハッシュを再計算するため日付が変わったらリロード
   if (nextDate.getDate() !== nowDate.getDate()) {
     location.reload();
   }
 
   // 誕生日かどうか
-  if (nextDate.getMonth() === birth.mon && nextDate.getDate() === birth.day) {
+  const { mon, day } = morinoBirth;
+  if (nextDate.getMonth() === mon && nextDate.getDate() === day) {
     happyBirthDay();
     return;
   }
@@ -57,7 +54,7 @@ const update = () => {
 setInterval(update, 1000);
 update();
 
-// クリック時にツイート用のURLを設定
+// ボタンクリック時にツイート用のURLを設定
 document.getElementById("tweet-btn").onclick = () => {
   const text = second > 0
     ? `杜野凛世さんのお誕生日まで残り ${second} 秒です！`
