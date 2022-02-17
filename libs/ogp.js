@@ -2,7 +2,7 @@ import { crypto } from "https://deno.land/std@0.114.0/crypto/mod.ts";
 import { encode } from "https://deno.land/std@0.114.0/encoding/base64url.ts";
 
 import { verification } from "./hash.js";
-import { morinoBirth, calcSecond2Birthday, convJstDate } from "./date.js";
+import { calcSecond2Birthday, convJstDate, morinoBirth } from "./date.js";
 
 /**
  * CloudinaryのURLを作成
@@ -43,7 +43,7 @@ export function getOgImageUrl(params) {
   const date = convJstDate(timestamp);
 
   // 誕生日なら専用の画像を返す
-  const { mon, day } = morinoBirth
+  const { mon, day } = morinoBirth;
   if (date.getMonth() === mon && date.getDate() === day) {
     return `${Deno.env.get("BASE_URL")}/ogp-hpb.png`;
   }

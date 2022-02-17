@@ -1,5 +1,9 @@
-import { calcSecond2Birthday, getNowJstDate, morinoBirth } from "./lib/date.js";
-import { embedData2Text } from "./lib/util.js";
+import {
+  calcSecond2Birthday,
+  getNowJstDate,
+  morinoBirth,
+} from "./libs/date.js";
+import { embedData2Text } from "./libs/util.js";
 
 let nowDate = getNowJstDate();
 let second = 0;
