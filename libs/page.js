@@ -15,12 +15,13 @@ export async function getPage(params) {
   const nowDate = createDateString(getNowJstDate());
   const dateHash = md5(nowDate + Deno.env.get("APP_SECRET"));
 
+  // URL作成
+  const baseUrl = new URL(Deno.env.get("BASE_URL"));
+  baseUrl.searchParams.append("h", dateHash);
+
   const data = new Map([
     ["ogImage", ogImageUrl],
-    [
-      "baseUrl",
-      encodeURIComponent(`${Deno.env.get("BASE_URL")}?h=${dateHash}`),
-    ],
+    ["baseUrl", baseUrl.toString()],
   ]);
 
   // データを埋め込む
