@@ -20,5 +20,5 @@ CLOUDINARY_SECRET=[CloudinaryのAPI Secret]
 ## 実行
 
 ```sh
-deno tasks start
+deno task start
 ```
