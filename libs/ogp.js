@@ -1,5 +1,4 @@
-import { crypto } from "https://deno.land/std@0.114.0/crypto/mod.ts";
-import { encode } from "https://deno.land/std@0.114.0/encoding/base64url.ts";
+import { crypto, encode } from "../deps.js";
 
 import { verification } from "./hash.js";
 import { calcSecond2Birthday, convJstDate, morinoBirth } from "./date.js";

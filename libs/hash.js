@@ -1,4 +1,4 @@
-import { crypto } from "https://deno.land/std@0.114.0/crypto/mod.ts";
+import { crypto } from "../deps.js";
 
 import { convJstDate, createDateString, getNowJstDate } from "./date.js";
 
