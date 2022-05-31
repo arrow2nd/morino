@@ -1,4 +1,4 @@
-import * as esbuild from "https://deno.land/x/esbuild@v0.14.10/mod.js";
+import * as esbuild from "../deps.js";
 
 console.log("[Build Start]");
 
