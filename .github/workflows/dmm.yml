@@ -20,8 +20,8 @@ jobs:
       - name: Update dmm
         run: |
           deno install \
-            --allow-read=deps.ts \
-            --allow-write=deps.ts \
+            --allow-read=deps.js \
+            --allow-write=deps.js \
             --allow-net='cdn.deno.land,api.deno.land,x.nest.land,raw.githubusercontent.com,github.com,api.github.com' \
             https://deno.land/x/dmm/mod.ts
           dmm update
