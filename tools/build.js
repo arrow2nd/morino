@@ -1,17 +1,15 @@
-import * as esbuild from "../deps.js";
+import { bundle, esbuild } from "../deps.js";
 
 console.log("[Build Start]");
 
-const { files } = await Deno.emit("./client.js", {
+const result = await bundle("./client.js", {
   bundle: "module",
-  compilerOptions: {
-    target: "es2015",
-    module: "es2015",
-  },
+  inlineSourceMap: false,
+  sourceMap: false,
 });
 
 // minify
-const { code } = await esbuild.transform(files["deno:///bundle.js"], {
+const { code } = await esbuild.transform(result.code, {
   minify: true,
 });
 
