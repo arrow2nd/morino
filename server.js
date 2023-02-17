@@ -1,4 +1,4 @@
-import "https://deno.land/x/dotenv@v3.2.0/load.ts";
+import "https://deno.land/x/dotenv@v3.2.2/load.ts";
 import { serve } from "./deps.js";
 
 import { getAsset, hasAsset } from "./libs/asset.js";
