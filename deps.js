@@ -1,5 +1,5 @@
-export { serve } from "https://deno.land/std@0.184.0/http/server.ts";
-export { crypto } from "https://deno.land/std@0.184.0/crypto/mod.ts";
-export { encode } from "https://deno.land/std@0.184.0/encoding/base64url.ts";
-export { bundle } from "https://deno.land/x/emit@0.20.0/mod.ts";
+export { serve } from "https://deno.land/std@0.185.0/http/server.ts";
+export { crypto } from "https://deno.land/std@0.185.0/crypto/mod.ts";
+export { encode } from "https://deno.land/std@0.185.0/encoding/base64url.ts";
+export { bundle } from "https://deno.land/x/emit@0.21.1/mod.ts";
 export * as esbuild from "https://deno.land/x/esbuild@v0.17.18/mod.js";
