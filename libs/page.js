@@ -5,10 +5,11 @@ import { embedData2Text } from "./util.js";
 
 /**
  * ページを取得
+ * @param {string} url ベースURL
  * @param {URLSearchParams} params URLパラメータ
  * @return {Promise<Response>} HTTPレスポンス
  */
-export async function getPage(params) {
+export async function getPage(url, params) {
   const ogImageUrl = getOgImageUrl(params);
 
   // 今日の日付をベースにハッシュを作成
@@ -16,7 +17,7 @@ export async function getPage(params) {
   const dateHash = md5(nowDate + Deno.env.get("APP_SECRET"));
 
   // URL作成
-  const baseUrl = new URL(Deno.env.get("BASE_URL"));
+  const baseUrl = new URL(url);
   baseUrl.searchParams.append("h", dateHash);
 
   const data = new Map([

@@ -1,10 +1,9 @@
 import "https://deno.land/x/dotenv@v3.2.2/load.ts";
-import { serve } from "./deps.js";
 
 import { getAsset, hasAsset } from "./libs/asset.js";
 import { getPage } from "./libs/page.js";
 
-serve((req) => {
+Deno.serve((req) => {
   const { pathname, searchParams } = new URL(req.url);
 
   // 存在するアセットのパスなら返す
@@ -12,7 +11,5 @@ serve((req) => {
     return getAsset(pathname);
   }
 
-  return getPage(searchParams);
+  return getPage(req.url, searchParams);
 });
-
-console.log(`Listening on ${Deno.env.get("BASE_URL")}`);
