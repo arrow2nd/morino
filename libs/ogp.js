@@ -1,4 +1,4 @@
-import { crypto, encode } from "../deps.js";
+import { crypto, encodeBase64Url } from "../deps.js";
 
 import { verification } from "./hash.js";
 import { calcSecond2Birthday, convJstDate, morinoBirth } from "./date.js";
@@ -20,7 +20,7 @@ function createCloudinaryUrl(trans, pubId) {
   );
 
   const sha1 = crypto.subtle.digestSync("SHA-1", data);
-  const signature = `s--${encode(sha1).slice(0, 8)}--`;
+  const signature = `s--${encodeBase64Url(sha1).slice(0, 8)}--`;
 
   return [baseUrl, signature, toSign].join("/");
 }
