@@ -1,4 +1,5 @@
-import { bundle, esbuild } from "../deps.js";
+import * as esbuild from "esbuild";
+import { bundle } from "@deno/emit";
 
 console.log("[Build Start]");
 

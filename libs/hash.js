@@ -1,4 +1,4 @@
-import { crypto } from "../deps.js";
+import { crypto } from "@std/crypto";
 
 import { convJstDate, createDateString, getNowJstDate } from "./date.js";
 

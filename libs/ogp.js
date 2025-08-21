@@ -1,4 +1,5 @@
-import { crypto, encodeBase64Url } from "../deps.js";
+import { encodeBase64Url } from "@std/encoding";
+import { crypto } from "@std/crypto";
 
 import { verification } from "./hash.js";
 import { calcSecond2Birthday, convJstDate, morinoBirth } from "./date.js";
